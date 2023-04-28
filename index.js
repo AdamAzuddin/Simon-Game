@@ -17,7 +17,26 @@ function showAns(answerArray) {
   }
 }
 
+function pressButton(number) {
+  // convert position number to class name
+  switch (number) {
+    case 0:
+      var btnClass = "green";
+      break;
+    case 1:
+      var btnClass = "red";
+      break;
+    case 2:
+      var btnClass = "yellow";
+      break;
+    case 3:
+      var btnClass = "blue";
+      break;
+    default:
+      break;
+  }
 
+}
 function start() {
   $("h1").text("Press Any Key to Start");
   $(document).keydown(function () {
