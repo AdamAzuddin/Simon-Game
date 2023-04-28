@@ -36,6 +36,11 @@ function pressButton(number) {
       break;
   }
 
+  $(`.${btnClass}`).addClass("pressed");
+  setTimeout(() => {
+    $(`.${btnClass}`).removeClass("pressed");
+  }, 150);
+  playSound(btnClass);
 }
 function start() {
   $("h1").text("Press Any Key to Start");
