@@ -1,3 +1,7 @@
+function startLevel(level) {
+    $("h1").text(`Start Level ${level}`);
+  addRandomNumToAns(level);
+}
 
 
 function start() {
