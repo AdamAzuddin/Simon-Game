@@ -1,6 +1,14 @@
 function startLevel(level) {
-    $("h1").text(`Start Level ${level}`);
+  $("h1").text(`Start Level ${level}`);
   addRandomNumToAns(level);
+}
+function addRandomNumToAns(length) {
+  var answer = [];
+  for (let index = 0; index < length; index++) {
+    var randomButton = Math.floor(Math.random() * 4);
+    answer.push(randomButton);
+  }
+  showAns(answer);
 }
 
 
