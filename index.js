@@ -49,4 +49,10 @@ function start() {
   });
 }
 
+function playSound(fileName) {
+    var audio = new Audio(`./sounds/${fileName}.mp3`);
+    audio.play();
+  }
+  
+
 start();
