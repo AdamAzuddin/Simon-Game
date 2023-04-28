@@ -10,6 +10,12 @@ function addRandomNumToAns(length) {
   }
   showAns(answer);
 }
+function showAns(answerArray) {
+  // change sound by adding class
+  for (let index = 0; index < answerArray.length; index++) {
+    pressButton(answerArray[index]);
+  }
+}
 
 
 function start() {
