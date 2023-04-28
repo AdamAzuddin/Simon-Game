@@ -1,12 +1,11 @@
 function start() {
   $("h1").text("Press Any Key to Start");
   $(document).keydown(function () {
-    startLevel(1);
+    startLevel(3);
   });
 }
 
 function startLevel(level) {
-  $("h1").text(`Start Level ${level}`);
   addRandomNumToAns(level);
 }
 function addRandomNumToAns(length) {
@@ -15,13 +14,23 @@ function addRandomNumToAns(length) {
     var randomButton = Math.floor(Math.random() * 4);
     answer.push(randomButton);
   }
-  showAns(answer);
-}
-function showAns(answerArray) {
-  // change sound by adding class
-  for (let index = 0; index < answerArray.length; index++) {
-    pressButton(answerArray[index]);
+
+  if (answer.length > 1) {
+    for (let i = 0; i < answer.length; i++) {
+      setTimeout(() => {
+        pressButton(answer[i]);
+      }, i * 1000);
+    }
+  } else {
+    pressButton(answer[0]);
   }
+
+  return answer;
+}
+
+function showAns(answer) {
+  // change sound by adding class
+  pressButton(answer);
 }
 
 function pressButton(number) {
@@ -48,11 +57,13 @@ function pressButton(number) {
     $(`.${btnClass}`).removeClass("pressed");
   }, 150);
   playSound(btnClass);
+  return;
 }
 
 function playSound(fileName) {
   var audio = new Audio(`./sounds/${fileName}.mp3`);
   audio.play();
+  return;
 }
 
 start();
