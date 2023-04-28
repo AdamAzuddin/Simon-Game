@@ -1,3 +1,10 @@
+function start() {
+  $("h1").text("Press Any Key to Start");
+  $(document).keydown(function () {
+    startLevel(1);
+  });
+}
+
 function startLevel(level) {
   $("h1").text(`Start Level ${level}`);
   addRandomNumToAns(level);
@@ -42,17 +49,10 @@ function pressButton(number) {
   }, 150);
   playSound(btnClass);
 }
-function start() {
-  $("h1").text("Press Any Key to Start");
-  $(document).keydown(function () {
-    startLevel(1);
-  });
-}
 
 function playSound(fileName) {
-    var audio = new Audio(`./sounds/${fileName}.mp3`);
-    audio.play();
-  }
-  
+  var audio = new Audio(`./sounds/${fileName}.mp3`);
+  audio.play();
+}
 
 start();
